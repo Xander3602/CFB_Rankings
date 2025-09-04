@@ -92,3 +92,4 @@ def calculate_rankings_with_previous_year(year: int, running_rankings: dict) -> 
     return running_rankings_copy
 
 
+

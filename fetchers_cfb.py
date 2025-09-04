@@ -121,8 +121,10 @@ def fetch_schedule(YEAR: int):
     return data_dict
 
 
-data_dict = fetch_schedule(2023)
+def fetch_and_store_schedule(year):
+    data_dict = fetch_schedule(year)
+    CONN = connect_to_db("db/schools.db")
+    insert_data_into_table(CONN, data_dict, "schedule")
+    close_connection(CONN)
 
-CONN = connect_to_db("db/schools.db")
-insert_data_into_table(CONN, data_dict, "schedule")
-close_connection(CONN)
+
